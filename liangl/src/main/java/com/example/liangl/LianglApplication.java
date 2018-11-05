@@ -3,7 +3,7 @@ package com.example.liangl;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-@SpringBootApplication
+@SpringBootApplication(scanBasePackages={"com.example.liangl"})
 public class LianglApplication {
 
 	public static void main(String[] args) {
