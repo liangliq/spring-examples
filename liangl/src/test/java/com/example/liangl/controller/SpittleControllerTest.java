@@ -6,7 +6,6 @@ import org.hamcrest.Matchers;
 import org.junit.Test;
 import org.mockito.Mockito;
 import org.springframework.test.web.servlet.MockMvc;
-import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 import org.springframework.web.servlet.view.InternalResourceView;
 
@@ -26,12 +25,12 @@ import static org.springframework.test.web.servlet.setup.MockMvcBuilders.standal
  */
 public class SpittleControllerTest {
 
-    //@Test
+    @Test
     public void shouldShowRecentSpittles() throws Exception {
         List<Spittle> expectedSpittles = createSpittleList(50);
         SpittleRepository mockRepository =
                 mock(SpittleRepository.class);
-        when(mockRepository.findSpittles(238900,50))
+        when(mockRepository.findSpittles(238900, 50))
                 .thenReturn(expectedSpittles);
 
         SpittleController controller = new SpittleController(mockRepository);
@@ -62,7 +61,6 @@ public class SpittleControllerTest {
                 .andExpect(model().attributeExists("spittle"))
                 .andExpect(model().attribute("spittle", expectedSpittle));
     }
-
 
     private List<Spittle> createSpittleList(int count) {
         List<Spittle> spittles = new ArrayList<Spittle>();
