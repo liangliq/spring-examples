@@ -8,22 +8,24 @@ import javax.validation.constraints.Size;
 
 public class Spitter {
 
+    private Long id;
+
     @NotNull
-    @Size(min = 2,max = 30)
+    @Size(min = 2,max = 50)
     private String firstname;
 
     @NotNull
-    @Size(min = 2,max = 30)
+    @Size(min = 2,max = 50)
     private String lastname;
 
     @NotNull
-    @Size(min = 2,max = 16)
+    @Size(min = 2,max = 50)
     private String username;
 
     @NotNull
     @Size(min = 2,max = 25)
     private String password;
-    private Long index;
+
 
     public String getFirstname() {
         return firstname;
@@ -57,12 +59,12 @@ public class Spitter {
         this.password = password;
     }
 
-    public Long getIndex() {
-        return index;
+    public Long getId() {
+        return id;
     }
 
-    public void setIndex(Long index) {
-        this.index = index;
+    public void setId(Long index) {
+        this.id = index;
     }
 
     public Spitter(){}
@@ -74,12 +76,12 @@ public class Spitter {
         this.password = password;
     }
 
-    public Spitter(Long index, String firstname, String lastname, String username, String password) {
+    public Spitter(Long id, String firstname, String lastname, String username, String password) {
         this.firstname = firstname;
         this.lastname = lastname;
         this.username = username;
         this.password = password;
-        this.index = index;
+        this.id = id;
     }
     @Override
     public boolean equals(Object that){
