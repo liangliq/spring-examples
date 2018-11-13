@@ -16,14 +16,14 @@
     <!-- 在上下文context-param中设置profile.default的默认值 -->
     <context-param>
         <param-name>spring.profiles.default</param-name>
-        <param-value>development</param-value>
+        <param-value>dev</param-value>
     </context-param>
 
     <!-- 在上下文context-param中设置profile.active的默认值 -->
     <!-- 设置active后default失效，web启动时会加载对应的环境信息 -->
     <context-param>
         <param-name>spring.profiles.active</param-name>
-        <param-value>development</param-value>
+        <param-value>dev</param-value>
     </context-param>
 
     <servlet>
@@ -31,8 +31,8 @@
         <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
         <!-- 在DispatcherServlet参数中设置profile的默认值，active同理 -->
         <init-param>
-            <param-name>spring.profiles.default</param-name>
-            <param-value>development</param-value>
+            <param-name>spring.profiles.active</param-name>
+            <param-value>dev</param-value>
         </init-param>
         <load-on-startup>1</load-on-startup>
     </servlet>

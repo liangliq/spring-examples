@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
+import org.springframework.stereotype.Component;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -14,14 +15,16 @@ import java.util.List;
 /**
  * Created by cpekl-ddim-2 on 11/12/18.
  */
+
+@Component
 public class JdbcSpitterRepository implements SpitterRepository {
 
     private JdbcTemplate jdbcTemplate;
 
     private static final String INSERT_SPITTER =
-            "insert into spitter {firstname, lastname, password, username} values (?,?,?,?)";
+            "insert into spitter {firstname, lastname, username, password} values (?,?,?,?)";
     private static final String STLECT_SPITTER_BY_ID =
-            "select id, firstname, lastname, username from spitter where id = ?";
+            "select id, firstname, lastname, username, password from spitter where id = ?";
 
     @Autowired
     public JdbcSpitterRepository(JdbcTemplate jdbcTemplate) {

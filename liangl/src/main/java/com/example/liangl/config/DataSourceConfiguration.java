@@ -16,13 +16,14 @@ import javax.sql.DataSource;
 @Configuration
 public class DataSourceConfiguration {
 
-    @Profile("development")
+    //default connect to jdbc:h2:mem:testdb
+    @Profile("dev")
     @Bean
     public DataSource embeddedDataSource(){
         return new EmbeddedDatabaseBuilder()
                 .setType(EmbeddedDatabaseType.H2)
                 .addScript("classpath:schema.sql")
-                .addScript("classpath:test-data.sql")
+                .addScript("classpath:data.sql")
                 .build();
     }
 

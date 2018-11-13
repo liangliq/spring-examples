@@ -2,6 +2,9 @@ package com.example.liangl.config;
 
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 
+import javax.servlet.ServletContext;
+import javax.servlet.ServletException;
+
 /**
  * Created by cpekl-ddim-2 on 11/5/18.
  */
@@ -21,6 +24,4 @@ public class LianglWebAppInitializer extends AbstractAnnotationConfigDispatcherS
     protected Class<?>[] getServletConfigClasses() {
         return new Class[]{WebConfig.class};
     }
-
-
 }
