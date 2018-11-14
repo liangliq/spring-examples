@@ -8,7 +8,7 @@ import javax.validation.constraints.Size;
 
 public class Spitter {
 
-    private Long id;
+    private long id;
 
     @NotNull
     @Size(min = 2,max = 50)
@@ -59,7 +59,7 @@ public class Spitter {
         this.password = password;
     }
 
-    public Long getId() {
+    public long getId() {
         return id;
     }
 

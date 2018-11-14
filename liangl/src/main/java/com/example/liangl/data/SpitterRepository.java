@@ -12,7 +12,7 @@ public interface SpitterRepository {
 
     Spitter findByUsername(String username);
 
-    Spitter findOne(Long id);
+    Spitter findOne(long id);
 
     List<Spitter> findAll ();
 }

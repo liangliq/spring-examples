@@ -53,7 +53,7 @@ public class JdbcSpitterRepository implements SpitterRepository {
     }
 
     @Override
-    public Spitter findOne(Long id) {
+    public Spitter findOne(long id) {
         return jdbcTemplate.queryForObject(STLECT_SPITTER_BY_ID, new SpitterRowMapper(), id);
     }
 
