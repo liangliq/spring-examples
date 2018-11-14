@@ -22,9 +22,13 @@ public class JdbcSpitterRepository implements SpitterRepository {
     private JdbcTemplate jdbcTemplate;
 
     private static final String INSERT_SPITTER =
-            "insert into spitter {firstname, lastname, username, password} values (?,?,?,?)";
+            "insert into spitter (firstname, lastname, username, password) values (?,?,?,?)";
     private static final String STLECT_SPITTER_BY_ID =
             "select id, firstname, lastname, username, password from spitter where id = ?";
+
+    private static final String STLECT_SPITTER_BY_USERNAME =
+            "select id, firstname, lastname, username, password from spitter where username = ?";
+
 
     @Autowired
     public JdbcSpitterRepository(JdbcTemplate jdbcTemplate) {
@@ -55,7 +59,8 @@ public class JdbcSpitterRepository implements SpitterRepository {
 
     @Override
     public Spitter findByUsername(String username) {
-        return null;
+        return jdbcTemplate.queryForObject(STLECT_SPITTER_BY_USERNAME, new SpitterRowMapper(), username);
+
     }
 
     @Override

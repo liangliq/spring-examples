@@ -5,7 +5,7 @@
     <title>Register</title>
 </head>
 <body>
-<form:form modelAttribute="spitter" method="post" action="/register">
+<form:form modelAttribute="spitter" method="POST">
     <table>
         <tr>
             <td>FirstName：</td>
