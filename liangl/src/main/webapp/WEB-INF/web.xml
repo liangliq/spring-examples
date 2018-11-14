@@ -23,7 +23,7 @@
     <!-- 设置active后default失效，web启动时会加载对应的环境信息 -->
     <context-param>
         <param-name>spring.profiles.active</param-name>
-        <param-value>dev</param-value>
+        <param-value>prod</param-value>
     </context-param>
 
     <servlet>
@@ -32,7 +32,7 @@
         <!-- 在DispatcherServlet参数中设置profile的默认值，active同理 -->
         <init-param>
             <param-name>spring.profiles.active</param-name>
-            <param-value>dev</param-value>
+            <param-value>prod</param-value>
         </init-param>
         <load-on-startup>1</load-on-startup>
     </servlet>

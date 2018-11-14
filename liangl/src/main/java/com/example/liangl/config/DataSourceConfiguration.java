@@ -40,7 +40,7 @@ public class DataSourceConfiguration {
         return bDs;
     }
 
-    @Profile("production")
+    @Profile("prod")
     @Bean
     public DataSource dataSource(){
         JndiObjectFactoryBean jndiObjectFactoryBean = new JndiObjectFactoryBean();
