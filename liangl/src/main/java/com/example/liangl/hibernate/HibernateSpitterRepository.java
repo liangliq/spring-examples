@@ -18,9 +18,8 @@ import java.util.List;
 /**
  * Created by cpekl-ddim-2 on 11/14/18.
  */
-@Component
-@Repository
-@Primary
+
+//@Repository
 public class HibernateSpitterRepository implements SpitterRepository {
 
     private SessionFactory sessionFactory;

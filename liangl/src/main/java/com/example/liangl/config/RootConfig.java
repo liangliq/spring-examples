@@ -34,7 +34,8 @@ public class RootConfig {
         return new JdbcTemplate(dataSource);
     }
 
-    @Bean
+    //only hibernate sessionFactory used bean
+    /*@Bean
     public LocalSessionFactoryBean sessionFactory(DataSource dataSource) {
         LocalSessionFactoryBean sfb = new LocalSessionFactoryBean();
         sfb.setDataSource(dataSource);
@@ -43,13 +44,14 @@ public class RootConfig {
         props.setProperty("dialect", "org.hibernate.dialect.H2Dialect");
         sfb.setHibernateProperties(props);
         return sfb;
-    }
+    }*/
     @Bean
     public BeanPostProcessor persistenceTranslation() {
         return new PersistenceExceptionTranslationPostProcessor();
     }
 
-   /* @Bean
+    //JPA used bean
+    @Bean
     public LocalContainerEntityManagerFactoryBean entityManagerFactory(DataSource dataSource, JpaVendorAdapter jpaVendorAdapter) {
 
         LocalContainerEntityManagerFactoryBean emfb = new LocalContainerEntityManagerFactoryBean();
@@ -68,5 +70,5 @@ public class RootConfig {
         adapter.setDatabasePlatform("org.hibernate.dialect.H2Dialec");
         return adapter;
 
-    }*/
+    }
 }
