@@ -9,15 +9,17 @@ import org.hibernate.criterion.Restrictions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.io.Serializable;
-import java.lang.invoke.SerializedLambda;
 import java.util.List;
 
 /**
  * Created by cpekl-ddim-2 on 11/14/18.
  */
 @Component
+@Repository
 @Primary
 public class HibernateSpitterRepository implements SpitterRepository {
 
@@ -28,13 +30,14 @@ public class HibernateSpitterRepository implements SpitterRepository {
         this.sessionFactory = sessionFactory;
     }
 
-    private Session currentSesstion(){
+    private Session currentSession(){
         return sessionFactory.getCurrentSession();
     }
 
     @Override
+    @Transactional
     public Spitter save(Spitter spitter) {
-        Serializable id = currentSesstion().save(spitter);
+        Serializable id = currentSession().save(spitter);
         return new Spitter((Long) id,
                 spitter.getFirstname(),
                 spitter.getLastname(),
@@ -43,15 +46,17 @@ public class HibernateSpitterRepository implements SpitterRepository {
     }
 
     @Override
+    @Transactional
     public Spitter findByUsername(String username) {
-        return (Spitter) currentSesstion().createCriteria(Spitter.class)
+        return (Spitter) currentSession().createCriteria(Spitter.class)
                 .add(Restrictions.eq("username", username))
                 .list().get(0);
     }
 
     @Override
+    @Transactional
     public Spitter findOne(long id) {
-        return (Spitter) currentSesstion().get(Spitter.class, id);
+        return (Spitter) currentSession().get(Spitter.class, id);
     }
 
     @Override

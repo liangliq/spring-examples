@@ -2,7 +2,6 @@ package com.example.liangl.config;
 
 import org.apache.commons.dbcp.BasicDataSource;
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Profile;
 import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseBuilder;
 import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseType;
@@ -11,9 +10,8 @@ import org.springframework.jndi.JndiObjectFactoryBean;
 import javax.sql.DataSource;
 
 /**
- * Created by cpekl-ddim-2 on 11/12/18.
+ * Created by cpekl-ddim-2 on 11/15/18.
  */
-@Configuration
 public class DataSourceConfiguration {
 
     //default connect to jdbc:h2:mem:testdb
