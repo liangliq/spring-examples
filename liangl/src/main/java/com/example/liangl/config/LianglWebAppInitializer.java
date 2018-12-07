@@ -24,4 +24,5 @@ public class LianglWebAppInitializer extends AbstractAnnotationConfigDispatcherS
     protected Class<?>[] getServletConfigClasses() {
         return new Class[]{WebConfig.class};
     }
+
 }
